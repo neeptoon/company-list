@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+const workers = [
+    {name: 'Alex', surname: 'Bolt', position: 'QA', company: 'Sephora'},
+    {name: 'John', surname: 'Palmer', position: 'back', company: 'HOTE'},
+    {name: 'Tim', surname: 'Goose', position: 'coder', company: 'UMBRELLA'},
+    {name: 'Jack', surname: 'Duck', position: 'front', company: 'Sephora'},
+    {name: 'Robert', surname: 'Polson', position: 'CEO', company: 'UMBRELLA'},
+];
+
+const companies = [
+    {title: 'Sephora', qty: 23},
+    {title: 'HOTE', qty: 30},
+    {title: 'UMBRELLA', qty: 15},
+];
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <h1>hello world</h1>
+        </>
+    );
 }
 
 export default App;
