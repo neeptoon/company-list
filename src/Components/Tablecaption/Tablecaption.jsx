@@ -1,12 +1,10 @@
 import React from 'react';
 
-import {Chooser} from '../Chooser';
-
-export const Tablecaption = ({title}) => {
+export const Tablecaption = ({title, children}) => {
     return (
         <caption>
             <h3>{title}</h3>
-            <Chooser/>
+            {children}
         </caption>
     );
 };

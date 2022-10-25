@@ -13,11 +13,11 @@ export const companiesSlice = createSlice({
             const company = state.find(company => company.id === id);
             company.selected = !company.selected;
         },
-        selectAllCompany: (state, action) => {
-            state.forEach(company => company.selected = !company.selected);
+        selectAllCompanies: (state, action) => {
+            state.forEach(company => company.selected = !action.payload);
         }
     }
 });
 
-export const {selectAllCompany, selectCompany} = companiesSlice.actions;
+export const {selectAllCompanies, selectCompany} = companiesSlice.actions;
 export const companies = companiesSlice.reducer;
