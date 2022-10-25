@@ -2,6 +2,7 @@
     "name": "adept-test",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://neeptoon.github.io/company-list",
     "dependencies": {
         "@reduxjs/toolkit": "^1.8.6",
         "@testing-library/jest-dom": "^5.16.5",
@@ -18,7 +19,9 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "lint": "eslint -c .eslintrc --ext .js,.jsx,.ts,.tsx .",
-        "lint:fix": "npm run lint -- --fix"
+        "lint:fix": "npm run lint -- --fix",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
@@ -37,5 +40,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "gh-pages": "^4.0.0"
     }
 }
