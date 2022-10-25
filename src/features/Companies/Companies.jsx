@@ -6,38 +6,34 @@ import {Tablecaption} from '../../Components/Tablecaption';
 import {Chooser} from '../../Components/Chooser';
 import {useToggle} from '../../hooks/useToggle';
 
-import {selectCompany, selectAllCompanies} from './companies-slice';
-import classes from './Companies.module.scss';
+import CompanyRow from '../../Components/CompanyRow/CompanyRow';
 
+import {selectCompany, selectAllCompanies} from './companies-slice';
 
 export const Companies = () => {
     const dispatch = useDispatch();
     const companies = useSelector(state => state.companies);
     const rows = [];
-    const [allCompaniesSelected, setAllCompaniesSelected] = useToggle(false);
+    const [isSelected, toggleSelected] = useToggle(false);
 
     companies.forEach(company => {
+        const handleChange = (id) => {
+            dispatch(selectCompany(id));
+        };
         rows.push(
-            <tr className={company.selected ? `${classes.selected}`: ''} key={company.id}>
-                <td>
-                    <input type="checkbox" checked={company.selected} onChange={() => dispatch(selectCompany(company.id))}/>
-                </td>
-                <td>{company.title}</td>
-                <td>{company.qty}</td>
-                <td>{company.address}</td>
-            </tr>
+            <CompanyRow key={company.id} company={company} handleChange={handleChange}/>
         );
     });
 
-    const selectCompanies = () => {
-        setAllCompaniesSelected(!allCompaniesSelected);
-        dispatch(selectAllCompanies(allCompaniesSelected));
+    const toggleSelectAllCompanies = () => {
+        toggleSelected();
+        dispatch(selectAllCompanies(isSelected));
     };
 
     return (
-        <Table category="companies" companies={companies} rows={rows}>
+        <Table category="companies" rows={rows}>
             <Tablecaption title="Список компаний">
-                <Chooser value={allCompaniesSelected} onChange={selectCompanies}/>
+                <Chooser value={isSelected} onChange={toggleSelectAllCompanies}/>
             </Tablecaption>
         </Table>
 

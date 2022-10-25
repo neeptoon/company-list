@@ -1,9 +1,9 @@
 import classes from './Table.module.scss';
 
 const companiesTableHeads = ['Чекбокс', 'Название компании', 'Количество сотрудников', 'Адрес компании'];
-const workersTableHeads = ['Чекбокс', 'Фамилия', 'Имя', 'Должность'];
+const workersTableHeads = ['Чекбокс', 'Имя', 'Фамилия', 'Должность'];
 
-export const Table = ({category, title, rows, children}) => {
+export const Table = ({category, rows, children}) => {
     let heads;
     category === 'companies' ? heads = companiesTableHeads : heads = workersTableHeads;
 
