@@ -1,0 +1,19 @@
+caption {
+  margin: 0 0 10px;
+}
+
+h3 {
+  margin: 0 0 5px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid darkblue;
+}
+
+th, td {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+/*# sourceMappingURL=Table.module.css.map */

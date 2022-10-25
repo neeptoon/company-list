@@ -1,4 +1,7 @@
-import './App.scss';
+import classes from './App.module.scss';
+import {Container} from './Components/Container';
+import {Companies} from './Components/Companies';
+import {Workers} from './Components/Workers';
 
 const workers = [
     {name: 'Alex', surname: 'Bolt', position: 'QA', company: 'Sephora'},
@@ -17,7 +20,11 @@ const companies = [
 function App() {
     return (
         <>
-            <h1>hello world</h1>
+            <h1 className={classes.title}>Список компаний</h1>
+            <Container>
+                <Companies/>
+                <Workers/>
+            </Container>
         </>
     );
 }
