@@ -5,9 +5,8 @@ import classes from './Chooser.module.scss';
 
 export const Chooser = () => {
     return (
-        <label>
+        <label className={classes.label}>
             <input type="checkbox"/>
-            {''}
             выделить все
         </label>
     );

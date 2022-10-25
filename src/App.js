@@ -1,7 +1,7 @@
 import classes from './App.module.scss';
 import {Container} from './Components/Container';
-import {Companies} from './Components/Companies';
-import {Workers} from './Components/Workers';
+import {Companies} from './features/Companies';
+import {Workers} from './features/Workers';
 
 const workers = [
     {name: 'Alex', surname: 'Bolt', position: 'QA', company: 'Sephora'},
@@ -12,9 +12,9 @@ const workers = [
 ];
 
 const companies = [
-    {title: 'Sephora', qty: 23},
-    {title: 'HOTE', qty: 30},
-    {title: 'UMBRELLA', qty: 15},
+    {title: 'Sephora', qty: 23, address: 'Beketova str., 23'},
+    {title: 'HOTE', qty: 30, address: 'Sobinova str., 45'},
+    {title: 'UMBRELLA', qty: 15, address: 'Lyadova pl., 11'},
 ];
 
 function App() {

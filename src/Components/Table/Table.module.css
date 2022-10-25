@@ -6,14 +6,19 @@ h3 {
   margin: 0 0 5px;
 }
 
-table {
+.table {
   border-collapse: collapse;
   border: 2px solid darkblue;
 }
 
 th, td {
-  padding: 20px;
+  padding: 8px;
   border: 1px solid black;
+  text-align: center;
+}
+
+.selected {
+  background-color: bisque;
 }
 
 /*# sourceMappingURL=Table.module.css.map */
