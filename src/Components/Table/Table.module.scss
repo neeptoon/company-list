@@ -1,5 +1,6 @@
 caption {
     margin: 0 0 10px;
+    min-height: 40px;
 }
 
 h3 {
@@ -9,6 +10,7 @@ h3 {
 .table {
     border-collapse: collapse;
     border: 2px solid darkblue;
+    height: max-content;
 }
 
 th, td {
