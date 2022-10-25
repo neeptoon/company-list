@@ -1,9 +1,9 @@
-import React from 'react';
+import {selectWorker} from '../../features/Workers/workers-slice';
 
 import classes from './WorkerRow.module.scss';
 
 
-const WorkerRow = ({worker, handleChange}) => {
+export const WorkerRow = ({worker, handleChange}) => {
     return (
         <tr
             className={worker.selected ? classes.selected : ''}
@@ -11,7 +11,7 @@ const WorkerRow = ({worker, handleChange}) => {
             <td>
                 <input type="checkbox"
                     checked={worker.selected}
-                    onChange={() => handleChange(worker.id)}
+                    onChange={() => handleChange(worker.id, selectWorker)}
                 />
             </td>
             <td>{worker.name}</td>
@@ -20,5 +20,3 @@ const WorkerRow = ({worker, handleChange}) => {
         </tr>
     );
 };
-
-export default WorkerRow;

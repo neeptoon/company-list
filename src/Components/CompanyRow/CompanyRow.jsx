@@ -1,8 +1,7 @@
-import React from 'react';
+import {selectCompany} from '../../features/Companies/companies-slice';
 
 import classes from './CompanyRow.module.scss';
-
-const CompanyRow = ({company, handleChange}) => {
+export const CompanyRow = ({company, handleChange}) => {
     return (
         <tr
             className={company.selected ? classes.selected : ''}
@@ -11,7 +10,7 @@ const CompanyRow = ({company, handleChange}) => {
                 <input
                     type="checkbox"
                     checked={company.selected}
-                    onChange={() => handleChange(company.id)}
+                    onChange={() => handleChange(company.id, selectCompany)}
                 />
             </td>
             <td>{company.title}</td>
@@ -20,5 +19,3 @@ const CompanyRow = ({company, handleChange}) => {
         </tr>
     );
 };
-
-export default CompanyRow;

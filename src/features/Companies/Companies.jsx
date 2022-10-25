@@ -5,23 +5,24 @@ import {Table} from '../../Components/Table';
 import {Tablecaption} from '../../Components/Tablecaption';
 import {Chooser} from '../../Components/Chooser';
 import {useToggle} from '../../hooks/useToggle';
+import {useSelect} from '../../hooks/useSelect';
+import {CompanyRow} from '../../Components/CompanyRow';
 
-import CompanyRow from '../../Components/CompanyRow/CompanyRow';
-
-import {selectCompany, selectAllCompanies} from './companies-slice';
+import {selectAllCompanies} from './companies-slice';
 
 export const Companies = () => {
     const dispatch = useDispatch();
     const companies = useSelector(state => state.companies);
     const rows = [];
     const [isSelected, toggleSelected] = useToggle(false);
+    const selectCompany = useSelect();
 
     companies.forEach(company => {
-        const handleChange = (id) => {
-            dispatch(selectCompany(id));
-        };
         rows.push(
-            <CompanyRow key={company.id} company={company} handleChange={handleChange}/>
+            <CompanyRow
+                key={company.id}
+                company={company}
+                handleChange={selectCompany}/>
         );
     });
 

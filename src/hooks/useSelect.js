@@ -1,6 +1,9 @@
 import {useDispatch} from 'react-redux';
 
-export const useSelect = (id, action) => {
+export const useSelect = () => {
     const dispatch = useDispatch();
-    dispatch(action(id));
+    const select = (id, action) => {
+        dispatch(action(id));
+    };
+    return select;
 };
