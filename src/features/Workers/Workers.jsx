@@ -19,36 +19,33 @@ export const Workers = () => {
     const selectWorker = useSelect();
     const rows = [];
 
-    {currentCompany ?
-        workers
-            .filter(worker => worker.company === currentCompany)
-            .forEach(worker => {
-                rows.push(
-                    <WorkerRow
-                        key={worker.id}
-                        worker={worker}
-                        handleChange={selectWorker}
-                    />
-                );
-            }) :
-        rows.push(
-            <tr key={Date.now()}>
-                <td colSpan="4" >выбери одну компанию</td>
-            </tr>
-        );
+    workers
+        .filter(worker => worker.company === currentCompany)
+        .forEach(worker => {
+            rows.push(
+                <WorkerRow
+                    key={worker.id}
+                    worker={worker}
+                    handleChange={selectWorker}
+                />
+            );
+        });
 
-    }
+
 
     const handleChooserChange = () => {
         dispatch(selectAllWorkers(isSelectAll));
     };
 
     return (
-        <Table rows={rows}>
-            <Tablecaption title="Список работников">
-                {currentCompany && <Chooser value={isSelectAll} handleChooserChange={handleChooserChange}/>}
-            </Tablecaption>
-        </Table>
-
+        <>
+            {currentCompany &&
+                <Table rows={rows}>
+                    <Tablecaption title="Список работников">
+                        {currentCompany && <Chooser value={isSelectAll} handleChooserChange={handleChooserChange}/>}
+                    </Tablecaption>
+                </Table>
+            }
+        </>
     );
 };
