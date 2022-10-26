@@ -5,8 +5,7 @@ export const MyInput = (props) => {
         <input
             className={classes.field}
             type="text"
-            name={props.name}
-            value={props.value}
+            {...props}
         />
     );
 };
