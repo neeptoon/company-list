@@ -14,13 +14,17 @@ export const companiesSlice = createSlice({
     reducers: {
         selectCompany: (state, action) => {
             const id = action.payload;
+            // unselect previous companies
             state.companies
                 .filter(company => company.id !== id)
                 .forEach(company => company.selected = false);
+
             const company = state.companies.find(company => company.id === id);
             company.selected = !company.selected;
             state.selectAll = false;
-            state.selectedCompany = state.companies.find(company => company.id === id);
+            state.selectedCompany?.id === id ?
+                state.selectedCompany = null :
+                state.selectedCompany = state.companies.find(company => company.id === id);
         },
         selectAllCompanies: (state, action) => {
             state.companies.forEach(company => company.selected = !action.payload);

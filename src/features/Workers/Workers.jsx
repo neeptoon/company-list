@@ -18,7 +18,6 @@ export const Workers = () => {
     const currentCompany = useSelector(selectedCompany);
     const selectWorker = useSelect();
     const rows = [];
-    console.log(currentCompany);
 
     {currentCompany ?
         workers

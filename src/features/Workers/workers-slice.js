@@ -12,7 +12,7 @@ export const workersSlice = createSlice({
             {id: 36, name: 'Pol', surname: 'Smith', position: 'coder', company: 'UMBRELLA', selected: false},
             {id: 37, name: 'Tom', surname: 'Preston', position: 'designer', company: 'Sephora', selected: false},
             {id: 38, name: 'Helena', surname: 'Harper', position: 'designer', company: 'Sephora', selected: false},
-            {id: 38, name: 'Nataly', surname: 'Grin', position: 'frontend', company: 'HOTE', selected: false},
+            {id: 39, name: 'Nataly', surname: 'Grin', position: 'frontend', company: 'HOTE', selected: false},
         ],
         selectAll: false,
     },
