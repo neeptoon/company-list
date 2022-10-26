@@ -1,5 +1,7 @@
 import {selectCompany} from '../../features/Companies/companies-slice';
 
+import {MyInput} from '../MyInput';
+
 import classes from './CompanyRow.module.scss';
 export const CompanyRow = ({company, handleChange}) => {
     return (
