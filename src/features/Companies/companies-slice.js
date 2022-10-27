@@ -9,7 +9,6 @@ export const companiesSlice = createSlice({
             {id: 23, title: 'UMBRELLA', qty: 15, address: 'Lyadova pl., 11', selected: false},
         ],
         selectAll: false,
-        selectedCompany: null
     },
     reducers: {
         selectCompany: (state, action) => {
@@ -22,14 +21,10 @@ export const companiesSlice = createSlice({
             const company = state.companies.find(company => company.id === id);
             company.selected = !company.selected;
             state.selectAll = false;
-            state.selectedCompany?.id === id ?
-                state.selectedCompany = null :
-                state.selectedCompany = state.companies.find(company => company.id === id);
         },
         selectAllCompanies: (state, action) => {
             state.companies.forEach(company => company.selected = !action.payload);
             state.selectAll = !state.selectAll;
-            state.selectedCompany = null;
         },
         updateCompany: (state, action) => {
             const {id, title, address} = action.payload;
@@ -45,4 +40,3 @@ export const companies = companiesSlice.reducer;
 
 export const selectCompanies = (state) => state.companies.companies;
 export const selectAll = (state) => state.companies.selectAll;
-export const selectedCompany = state => state.companies.selectedCompany?.title;
