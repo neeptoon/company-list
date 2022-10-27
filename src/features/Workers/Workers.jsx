@@ -20,7 +20,7 @@ export const Workers = () => {
     const rows = [];
 
     workers
-        .filter(worker => worker.company === currentCompany)
+        .filter(worker => worker.company?.toUpperCase() === currentCompany?.toUpperCase())
         .forEach(worker => {
             rows.push(
                 <WorkerRow
