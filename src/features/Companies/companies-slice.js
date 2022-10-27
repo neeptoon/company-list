@@ -30,11 +30,17 @@ export const companiesSlice = createSlice({
             state.companies.forEach(company => company.selected = !action.payload);
             state.selectAll = !state.selectAll;
             state.selectedCompany = null;
+        },
+        updateCompany: (state, action) => {
+            const {id, title, address} = action.payload;
+            const company = state.companies.find(company => company.id === id);
+            if (title) company.title = title;
+            if (address) company.address = address;
         }
     }
 });
 
-export const {selectAllCompanies, selectCompany} = companiesSlice.actions;
+export const {selectAllCompanies, selectCompany, updateCompany} = companiesSlice.actions;
 export const companies = companiesSlice.reducer;
 
 export const selectCompanies = (state) => state.companies.companies;

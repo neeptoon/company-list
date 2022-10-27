@@ -16,22 +16,20 @@ export const Workers = () => {
     const workers = useSelector(selectWorkers);
     const isSelectAll = useSelector(selectAll);
     const currentCompany = useSelector(selectedCompany);
-    const selectWorker = useSelect();
+    const chooseWorker = useSelect();
     const rows = [];
 
     workers
-        .filter(worker => worker.company === currentCompany)
+        .filter(worker => worker.company?.toUpperCase() === currentCompany?.toUpperCase())
         .forEach(worker => {
             rows.push(
                 <WorkerRow
                     key={worker.id}
                     worker={worker}
-                    handleChange={selectWorker}
+                    chooseWorker={chooseWorker}
                 />
             );
         });
-
-
 
     const handleChooserChange = () => {
         dispatch(selectAllWorkers(isSelectAll));
