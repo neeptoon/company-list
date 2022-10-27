@@ -7,8 +7,6 @@ import {MyInput} from '../MyInput';
 
 import {selectWorkers} from '../../features/Workers/workers-slice';
 
-import {MyInput} from '../MyInput';
-
 import classes from './CompanyRow.module.scss';
 
 export const CompanyRow = ({company, chooseCompany}) => {
