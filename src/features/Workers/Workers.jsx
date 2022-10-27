@@ -16,8 +16,10 @@ export const Workers = () => {
     const workers = useSelector(selectWorkers);
     const isSelectAll = useSelector(selectAll);
     const currentCompany = useSelector(selectedCompany);
-    const selectWorker = useSelect();
+    const chooseWorker = useSelect();
     const rows = [];
+
+    console.log(currentCompany);
 
     workers
         .filter(worker => worker.company?.toUpperCase() === currentCompany?.toUpperCase())
@@ -26,12 +28,10 @@ export const Workers = () => {
                 <WorkerRow
                     key={worker.id}
                     worker={worker}
-                    handleChange={selectWorker}
+                    chooseWorker={chooseWorker}
                 />
             );
         });
-
-
 
     const handleChooserChange = () => {
         dispatch(selectAllWorkers(isSelectAll));

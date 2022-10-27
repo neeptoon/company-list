@@ -13,7 +13,7 @@ export const Companies = () => {
     const dispatch = useDispatch();
     const companies = useSelector(selectCompanies);
     const isSelectAll = useSelector(selectAll);
-    const selectCompany = useSelect();
+    const chooseCompany = useSelect();
     const rows = [];
 
     companies.forEach(company => {
@@ -21,7 +21,7 @@ export const Companies = () => {
             <CompanyRow
                 key={company.id}
                 company={company}
-                handleChange={selectCompany}/>
+                chooseCompany={chooseCompany}/>
         );
     });
 

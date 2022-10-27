@@ -9,7 +9,7 @@ import {selectWorkers} from '../../features/Workers/workers-slice';
 
 import classes from './CompanyRow.module.scss';
 
-export const CompanyRow = ({company, handleChange}) => {
+export const CompanyRow = ({company, chooseCompany}) => {
     const [field, setField] = useState({title: company.title, address: company.address});
     const dispatch = useDispatch();
     const workers = useSelector(selectWorkers);
@@ -24,7 +24,7 @@ export const CompanyRow = ({company, handleChange}) => {
                 <input
                     type="checkbox"
                     checked={company.selected}
-                    onChange={() => handleChange(company.id, selectCompany)}
+                    onChange={() => chooseCompany(company.id, selectCompany)}
                 />
             </td>
             <td>
