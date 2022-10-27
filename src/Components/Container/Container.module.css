@@ -1,6 +1,8 @@
 .container {
   display: flex;
   justify-content: space-evenly;
+  gap: 20px;
+  padding: 0 25px;
 }
 
 /*# sourceMappingURL=Container.module.css.map */

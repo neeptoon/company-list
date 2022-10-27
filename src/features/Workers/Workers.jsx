@@ -20,9 +20,12 @@ export const Workers = () => {
     const chooseWorker = useSelect();
     const rows = [];
 
-    console.log(isSelectAllCompanies);
-
-    const selectedCompany = companies.find(company => company.selected === true);
+    const selectedCompany = companies.find(company => {
+        if (isSelectAllCompanies) {
+            return null;
+        }
+        return company.selected === true;
+    });
 
     workers
         .filter(worker => worker.company?.toUpperCase() === selectedCompany?.title.toUpperCase())
