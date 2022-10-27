@@ -7,17 +7,20 @@ import {Chooser} from '../../Components/Chooser';
 import {useSelect} from '../../hooks/useSelect';
 import {WorkerRow} from '../../Components/WorkerRow';
 
-import {selectCompanies} from '../Companies/companies-slice';
+import {selectCompanies, selectedAllCompanies} from '../Companies/companies-slice';
 
-import {selectAll, selectAllWorkers, selectWorkers} from './workers-slice';
+import {selectAllWorkers, selectWorkers, selectedAllWorkers} from './workers-slice';
 
 export const Workers = () => {
     const dispatch = useDispatch();
     const workers = useSelector(selectWorkers);
-    const isSelectAll = useSelector(selectAll);
+    const isSelectAllWorkers = useSelector(selectedAllWorkers);
+    const isSelectAllCompanies = useSelector(selectedAllCompanies);
     const companies = useSelector(selectCompanies);
     const chooseWorker = useSelect();
     const rows = [];
+
+    console.log(isSelectAllCompanies);
 
     const selectedCompany = companies.find(company => company.selected === true);
 
@@ -35,7 +38,7 @@ export const Workers = () => {
 
 
     const handleChooserChange = () => {
-        dispatch(selectAllWorkers(isSelectAll));
+        dispatch(selectAllWorkers(isSelectAllWorkers));
     };
 
     return (
@@ -43,7 +46,7 @@ export const Workers = () => {
             {selectedCompany &&
                 <Table rows={rows}>
                     <Tablecaption title="Список работников">
-                        {selectedCompany && <Chooser value={isSelectAll} handleChooserChange={handleChooserChange}/>}
+                        {selectedCompany && <Chooser value={isSelectAllWorkers} handleChooserChange={handleChooserChange}/>}
                     </Tablecaption>
                 </Table>
             }

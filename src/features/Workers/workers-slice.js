@@ -14,7 +14,7 @@ export const workersSlice = createSlice({
             {id: 38, name: 'Helena', surname: 'Harper', position: 'designer', company: 'Sephora', selected: false},
             {id: 39, name: 'Nataly', surname: 'Grin', position: 'frontend', company: 'HOTE', selected: false},
         ],
-        selectAll: false,
+        isSelectedAllWorkers: false,
     },
 
     reducers: {
@@ -26,7 +26,7 @@ export const workersSlice = createSlice({
         },
         selectAllWorkers: (state, action) => {
             state.workers.forEach(worker => worker.selected = !action.payload);
-            state.selectAll = !state.selectAll;
+            state.isSelectedAllWorkers = !state.isSelectedAllWorkers;
         },
         updateWorker: (state, action) => {
             const {id, name, surname, position} = action.payload;
@@ -42,4 +42,4 @@ export const {selectAllWorkers, selectWorker, updateWorker} = workersSlice.actio
 export const workers = workersSlice.reducer;
 
 export const selectWorkers = (state) => state.workers.workers;
-export const selectAll = (state) => state.workers.selectAll;
+export const selectedAllWorkers = (state) => state.workers.isSelectedAllWorkers;

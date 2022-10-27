@@ -7,12 +7,12 @@ import {Chooser} from '../../Components/Chooser';
 import {useSelect} from '../../hooks/useSelect';
 import {CompanyRow} from '../../Components/CompanyRow';
 
-import {selectAll, selectAllCompanies, selectCompanies} from './companies-slice';
+import {selectedAllCompanies, selectAllCompanies, selectCompanies} from './companies-slice';
 
 export const Companies = () => {
     const dispatch = useDispatch();
     const companies = useSelector(selectCompanies);
-    const isSelectAll = useSelector(selectAll);
+    const isSelectAllCompanies = useSelector(selectedAllCompanies);
     const chooseCompany = useSelect();
     const rows = [];
 
@@ -26,13 +26,13 @@ export const Companies = () => {
     });
 
     const handleChooserChange = () => {
-        dispatch(selectAllCompanies(isSelectAll));
+        dispatch(selectAllCompanies(isSelectAllCompanies));
     };
 
     return (
         <Table category="companies" rows={rows}>
             <Tablecaption title="Список компаний">
-                <Chooser value={isSelectAll} handleChooserChange={handleChooserChange}/>
+                <Chooser value={isSelectAllCompanies} handleChooserChange={handleChooserChange}/>
             </Tablecaption>
         </Table>
 

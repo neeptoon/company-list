@@ -8,7 +8,7 @@ export const companiesSlice = createSlice({
             {id: 22, title: 'HOTE', qty: 30, address: 'Sobinova str., 45', selected: false},
             {id: 23, title: 'UMBRELLA', qty: 15, address: 'Lyadova pl., 11', selected: false},
         ],
-        selectAll: false,
+        isSelectedAllCompanies: false,
     },
     reducers: {
         selectCompany: (state, action) => {
@@ -24,7 +24,7 @@ export const companiesSlice = createSlice({
         },
         selectAllCompanies: (state, action) => {
             state.companies.forEach(company => company.selected = !action.payload);
-            state.selectAll = !state.selectAll;
+            state.isSelectedAllCompanies = !state.isSelectedAllCompanies;
         },
         updateCompany: (state, action) => {
             const {id, title, address} = action.payload;
@@ -39,4 +39,4 @@ export const {selectAllCompanies, selectCompany, updateCompany} = companiesSlice
 export const companies = companiesSlice.reducer;
 
 export const selectCompanies = (state) => state.companies.companies;
-export const selectAll = (state) => state.companies.selectAll;
+export const selectedAllCompanies = (state) => state.companies.isSelectedAllCompanies;
