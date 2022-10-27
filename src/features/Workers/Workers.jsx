@@ -19,8 +19,6 @@ export const Workers = () => {
     const chooseWorker = useSelect();
     const rows = [];
 
-    console.log(currentCompany);
-
     workers
         .filter(worker => worker.company?.toUpperCase() === currentCompany?.toUpperCase())
         .forEach(worker => {

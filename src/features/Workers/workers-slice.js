@@ -27,11 +27,18 @@ export const workersSlice = createSlice({
         selectAllWorkers: (state, action) => {
             state.workers.forEach(worker => worker.selected = !action.payload);
             state.selectAll = !state.selectAll;
+        },
+        updateWorker: (state, action) => {
+            const {id, name, surname, position} = action.payload;
+            const worker = state.workers.find(worker => worker.id === id);
+            if (name) worker.name = name;
+            if (surname) worker.surname = surname;
+            if (position) worker.position = position;
         }
     }
 });
 
-export const {selectAllWorkers, selectWorker} = workersSlice.actions;
+export const {selectAllWorkers, selectWorker, updateWorker} = workersSlice.actions;
 export const workers = workersSlice.reducer;
 
 export const selectWorkers = (state) => state.workers.workers;

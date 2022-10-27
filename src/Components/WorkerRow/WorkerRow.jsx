@@ -1,4 +1,4 @@
-import {selectWorker} from '../../features/Workers/workers-slice';
+import {selectWorker, updateWorker} from '../../features/Workers/workers-slice';
 
 import classes from './WorkerRow.module.scss';
 
